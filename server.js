@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
   res.send('Infinite Canvas WebSocket Backend is running!');
 });
 
+// Ping route for free server uptime monitoring (e.g. UptimeRobot)
+app.get('/ping', (req, res) => {
+  res.send('Awake!');
+});
+
 const server = http.createServer(app);
 
 // Graceful shutdown flag
