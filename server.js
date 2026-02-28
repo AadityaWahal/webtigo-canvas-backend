@@ -139,7 +139,7 @@ async function initializeServer() {
         }, 180000);
       }
 
-      // Built-in automated self-ping every 5 minutes to keep Render alive natively
+      // Built-in automated self-ping every 4 minutes to keep Render alive natively
       const pingUrl = process.env.PING_URL || 'https://webtigo-canvas-server.onrender.com/ping';
       setInterval(() => {
         if (!isShuttingDown) {
@@ -149,7 +149,7 @@ async function initializeServer() {
             console.error('Automated self-ping failed:', e.message);
           });
         }
-      }, 300000); // 5 minutes (300,000 milliseconds)
+      }, 240000); // 4 minutes (240,000 milliseconds)
 
     });
 
