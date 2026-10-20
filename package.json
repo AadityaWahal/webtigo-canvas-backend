@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "endlessync-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Endlessync Real-time Canvas & Data Synchronization Server",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
@@ -9,7 +9,13 @@
     "build": "node -e 'console.log(\"Build complete\")'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "endlessync",
+    "realtime",
+    "websocket",
+    "render",
+    "mongodb"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

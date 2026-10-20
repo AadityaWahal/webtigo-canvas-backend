@@ -1,6 +1,6 @@
 {
-  "name": "Webtigo Canvas Backend",
-  "description": "Infinite Canvas real-time WebSocket backend with in-memory state, dynamic WebSocket sync, and MongoDB support.",
+  "name": "Endlessync Backend",
+  "description": "Endlessync real-time synchronization backend powered by Express, Socket.IO, Render keep-awake auto-ping, and MongoDB integration.",
   "capabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
   ]
