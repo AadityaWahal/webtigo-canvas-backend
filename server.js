@@ -157,17 +157,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Client clears canvas
-  socket.on('canvas:clear', () => {
-    canvasElements = [];
-    pendingDbSaves.clear();
-    io.emit('canvas:cleared');
-
-    if (MONGO_URI) {
-      CanvasElementModel.deleteMany({}).catch(() => {});
-    }
-  });
-
   socket.on('disconnect', () => {
     connectedUsers = Math.max(0, connectedUsers - 1);
     io.emit('endlessync:users_count', { onlineUsers: connectedUsers });
