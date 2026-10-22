@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 app.use(cors({ origin: '*' }));
-app.use(express.json({ limit: '2mb' }));
+app.use(express.json({ limit: '10mb' }));
 
 const server = http.createServer(app);
 
@@ -102,6 +102,7 @@ const io = new Server(server, {
   transports: ['websocket', 'polling'],
   pingTimeout: 60000,
   pingInterval: 25000,
+  maxHttpBufferSize: 1e7, // 10MB limit for rich media attachments
 });
 
 io.on('connection', (socket) => {
