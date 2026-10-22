@@ -158,6 +158,20 @@ io.on('connection', (socket) => {
     }
   });
 
+  // Client clears the canvas board (preserves server state, empties elements)
+  socket.on('canvas:clear', () => {
+    canvasElements = [];
+    pendingDbSaves.clear();
+    io.emit('canvas:cleared');
+
+    if (MONGO_URI) {
+      CanvasElementModel.deleteMany({}).catch((err) => {
+        console.warn('⚠️ Canvas clear DB error:', err.message);
+      });
+    }
+    console.log(`🧹 Canvas board cleared by client ${socket.id}`);
+  });
+
   socket.on('disconnect', () => {
     connectedUsers = Math.max(0, connectedUsers - 1);
     io.emit('endlessync:users_count', { onlineUsers: connectedUsers });
